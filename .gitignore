@@ -1,0 +1,6 @@
+build
+lib
+.idea
+.gradle
+.vagrant
+*.iml
