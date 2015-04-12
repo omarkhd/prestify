@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- Here you can define the JNDI-like datasources that your reports use -->
+	<Resource
+		name="jdbc/my-jndi-name-here"
+		type="javax.sql.DataSource"
+		username=""
+		password=""
+		driverClassName=""
+		url=""
+		maxIdle="2"
+		auth="Container"
+		validationQuery="select 1"
+		factory="org.apache.commons.dbcp2.BasicDataSourceFactory"
+	/>
+
+	<WatchedResource>WEB-INF/web.xml</WatchedResource>
+	<WatchedResource>META-INF/context.xml</WatchedResource>
+
+	<Parameter
+		name="reports.home"
+		value=""
+		override="false"
+	/>
+</Context>
