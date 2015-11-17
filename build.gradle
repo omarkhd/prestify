@@ -13,9 +13,9 @@ repositories {
 
 	ivy {
 		url 'http://repository.pentaho.org/content/groups/omni'
-		layout  "pattern", {
-			ivy "[organisation]/[module]/[revision]/[module]-[revision].ivy.xml"
-			artifact "[organisation]/[module]/[revision]/[module]-[revision].jar"
+		layout 'pattern', {
+			ivy '[organisation]/[module]/[revision]/[module]-[revision].ivy.xml'
+			artifact '[organisation]/[module]/[revision]/[module]-[revision].jar'
 			m2compatible = true
 		}
 	}

@@ -1,0 +1,10 @@
+.git
+.gradle
+.vagrant
+.idea
+*.iml
+.gitignore
+.DS_Store
+tomcat.8080
+lib
+build
