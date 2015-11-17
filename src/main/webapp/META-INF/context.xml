@@ -3,7 +3,7 @@
 	<!--
 		Here you can define the JNDI-like datasources that your reports use, the
 		following example defines a datasource called "example", connecting to
-		a MySQL database called "exampledb" with "pentaho:pentaho" credentials
+		a MySQL database called "exampledb" with "pentaho:pentaho" credentials.
 	-->
 
 	<!-- <Resource
@@ -21,6 +21,11 @@
 
 	<WatchedResource>WEB-INF/web.xml</WatchedResource>
 	<WatchedResource>META-INF/context.xml</WatchedResource>
+
+	<!--
+		The reports.home parameter denotes where the base directory of the reports
+		is located, by default it is $HOME/reports.
+	-->
 
 	<!-- <Parameter
 		name="reports.home"

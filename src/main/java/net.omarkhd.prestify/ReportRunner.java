@@ -97,7 +97,7 @@ public class ReportRunner extends HttpServlet {
 			this.reportsBaseDir = this.getServletContext().getInitParameter("reports.home");
 
 			if(this.reportsBaseDir == null || this.reportsBaseDir.trim().equals("")) {
-				this.reportsBaseDir = System.getProperty("user.home");
+				this.reportsBaseDir = System.getProperty("user.home") + "/reports";
 			}
 		}
 

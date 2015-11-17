@@ -44,7 +44,7 @@ RUN rm -rf /opt/tomcat8/webapps/* && \
 
 # Define entrypoint.
 WORKDIR /opt/tomcat8
-VOLUME ["/root/reports"]
+VOLUME ["/opt/tomcat8/webapps/ROOT/META-INF/context.xml", "/root/reports"]
 EXPOSE 8080
 ENTRYPOINT ["bin/catalina.sh"]
 CMD ["run"]
