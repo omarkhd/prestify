@@ -27,6 +27,13 @@ RUN \
 	apt-get update && \
 	apt-get install -y gradle
 
+# MS core fonts installation.
+RUN add-apt-repository -y multiverse && \
+	apt-get update && \
+	apt-get install -y fontconfig && \
+	apt-get install -y ttf-mscorefonts-installer && \
+	fc-cache -fv
+
 # Install Tomcat 8.
 ADD http://www.us.apache.org/dist/tomcat/tomcat-8/v8.0.28/bin/apache-tomcat-8.0.28.zip /opt/.downloads/
 RUN apt-get update && apt-get install -y unzip
@@ -40,11 +47,10 @@ RUN cd /opt/prestify && gradle war
 
 # Deploy war into the tomcat7 container.
 RUN rm -rf /opt/tomcat8/webapps/* && \
-	unzip /opt/prestify/build/libs/net.omarkhd.prestify-0.1.0.war -d /opt/tomcat8/webapps/ROOT
+	unzip /opt/prestify/build/libs/net.omarkhd.prestify-0.1.2.war -d /opt/tomcat8/webapps/ROOT
 
 # Define entrypoint.
 WORKDIR /opt/tomcat8
-VOLUME ["/opt/tomcat8/webapps/ROOT/META-INF/context.xml", "/root/reports"]
 EXPOSE 8080
 ENTRYPOINT ["bin/catalina.sh"]
 CMD ["run"]
