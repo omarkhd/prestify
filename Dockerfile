@@ -32,13 +32,14 @@ RUN add-apt-repository -y multiverse && \
 	apt-get update && \
 	apt-get install -y fontconfig && \
 	apt-get install -y ttf-mscorefonts-installer && \
+	apt-get install -y ttf-ubuntu-font-family && \
 	fc-cache -fv
 
 # Install Tomcat 8.
-ADD http://www.us.apache.org/dist/tomcat/tomcat-8/v8.0.28/bin/apache-tomcat-8.0.28.zip /opt/.downloads/
+ADD http://www.us.apache.org/dist/tomcat/tomcat-8/v8.0.30/bin/apache-tomcat-8.0.30.zip /opt/.downloads/
 RUN apt-get update && apt-get install -y unzip
-RUN cd /opt && unzip .downloads/apache-tomcat-8.0.28.zip && \
-	mv apache-tomcat-8.0.28 tomcat8 && chmod +x tomcat8/bin/*.sh
+RUN cd /opt && unzip .downloads/apache-tomcat-8.0.30.zip && \
+	mv apache-tomcat-8.0.30 tomcat8 && chmod +x tomcat8/bin/*.sh
 
 # Copy and compile source code.
 ADD build.gradle gretty.plugin settings.gradle /opt/prestify/
