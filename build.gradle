@@ -1,4 +1,4 @@
-version = '0.1.2'
+version = '0.1.3'
 
 apply plugin: 'java'
 apply plugin: 'war'
@@ -24,11 +24,12 @@ repositories {
 dependencies {
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
 	compile 'com.googlecode.json-simple:json-simple:1.1.1'
-	compile 'pentaho-reporting-engine:pentaho-reporting-engine-classic-core:6.0.0.0-353'
-	runtime 'pentaho-reporting-engine:pentaho-reporting-engine-legacy-charts:6.0.0.0-353'
+	compile 'pentaho-reporting-engine:pentaho-reporting-engine-classic-core:6.1.0.11-329'
+	runtime 'pentaho-reporting-engine:pentaho-reporting-engine-legacy-charts:6.1.0.11-329'
 	runtime 'org.apache.commons:commons-dbcp2:2.1.1'
 	runtime 'org.codehaus.groovy:groovy-all:2.4.5'
 	runtime 'mysql:mysql-connector-java:5.1.37'
+	runtime 'postgresql:postgresql:9.4.1208-jdbc42-atlassian-hosted'
 }
 
 task deleteDependencies(type: Delete) {

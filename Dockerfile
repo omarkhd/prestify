@@ -36,10 +36,10 @@ RUN add-apt-repository -y multiverse && \
 	fc-cache -fv
 
 # Install Tomcat 8.
-ADD http://www.us.apache.org/dist/tomcat/tomcat-8/v8.0.30/bin/apache-tomcat-8.0.30.zip /opt/.downloads/
+ADD http://www-eu.apache.org/dist/tomcat/tomcat-8/v8.0.41/bin/apache-tomcat-8.0.41.zip /opt/.downloads/
 RUN apt-get update && apt-get install -y unzip
-RUN cd /opt && unzip .downloads/apache-tomcat-8.0.30.zip && \
-	mv apache-tomcat-8.0.30 tomcat8 && chmod +x tomcat8/bin/*.sh
+RUN cd /opt && unzip .downloads/apache-tomcat-8.0.41.zip && \
+	mv apache-tomcat-8.0.41 tomcat8 && chmod +x tomcat8/bin/*.sh
 
 # Copy and compile source code.
 ADD build.gradle gretty.plugin settings.gradle /opt/prestify/
@@ -48,7 +48,7 @@ RUN cd /opt/prestify && gradle war
 
 # Deploy war into the tomcat7 container.
 RUN rm -rf /opt/tomcat8/webapps/* && \
-	unzip /opt/prestify/build/libs/net.omarkhd.prestify-0.1.2.war -d /opt/tomcat8/webapps/ROOT
+	unzip /opt/prestify/build/libs/net.omarkhd.prestify-0.1.3.war -d /opt/tomcat8/webapps/ROOT
 
 # Define entrypoint.
 WORKDIR /opt/tomcat8
